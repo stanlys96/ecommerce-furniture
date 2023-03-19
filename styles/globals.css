@@ -1,0 +1,30 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Lato&display=swap");
+
+* {
+  font-family: "Josefin Sans", sans-serif;
+}
+
+.home-bg {
+  background: url("../public/img/ecommerce_background.png") no-repeat center
+    center/cover;
+  min-height: 85vh;
+}
+
+.unique-feature-bg {
+  background: url("../public/img/unique-feature.png") no-repeat center
+    center/cover;
+  min-height: 65vh;
+}
+
+.newsletter-bg {
+  background: url("../public/img/newsletter-bg.png") no-repeat center
+    center/cover;
+  min-height: 50vh;
+}
+
+.shadow-lg-custom {
+  box-shadow: 0 5px 10px 10px rgb(0 0 0 / 0.1), 0 2px 3px 3px rgb(0 0 0 / 0.1);
+}
