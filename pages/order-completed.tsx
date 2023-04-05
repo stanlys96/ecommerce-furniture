@@ -1,6 +1,6 @@
-import { Jumbotron } from "@/components/Jumbotron";
-import { OrderComplete } from "@/components/OrderComplete";
-import { Sponsors } from "@/components/Sponsors";
+import { Jumbotron } from "@/src/components/Jumbotron";
+import { OrderComplete } from "@/src/components/OrderComplete";
+import { Sponsors } from "@/src/components/Sponsors";
 import Image from "next/image";
 
 export default function OrderCompleted() {

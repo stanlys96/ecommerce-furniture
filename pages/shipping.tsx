@@ -1,6 +1,6 @@
-import { CartData } from "@/components/CartData";
-import { ContactInformation } from "@/components/ContactInformation";
-import { Jumbotron } from "@/components/Jumbotron";
+import { CartData } from "@/src/components/CartData";
+import { ContactInformation } from "@/src/components/ContactInformation";
+import { Jumbotron } from "@/src/components/Jumbotron";
 
 export default function Shipping() {
   return (

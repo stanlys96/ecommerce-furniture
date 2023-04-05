@@ -1,5 +1,5 @@
-import { CartTotals } from "@/components/CartTotals";
-import { Jumbotron } from "@/components/Jumbotron";
+import { CartTotals } from "@/src/components/CartTotals";
+import { Jumbotron } from "@/src/components/Jumbotron";
 import Image from "next/image";
 
 export default function ShoppingCart() {

@@ -1,6 +1,6 @@
-import { AboutHeader } from "@/components/AboutHeader";
-import { Jumbotron } from "@/components/Jumbotron";
-import { ShopexOffer } from "@/components/ShopexOffer";
+import { AboutHeader } from "@/src/components/AboutHeader";
+import { Jumbotron } from "@/src/components/Jumbotron";
+import { ShopexOffer } from "@/src/components/ShopexOffer";
 import Image from "next/image";
 
 export default function About() {

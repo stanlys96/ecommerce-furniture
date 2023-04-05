@@ -1,7 +1,7 @@
-import { AskAQuestion } from "@/components/AskAQuestion";
-import { GeneralInformation } from "@/components/GeneralInformation";
-import { Jumbotron } from "@/components/Jumbotron";
-import { Sponsors } from "@/components/Sponsors";
+import { AskAQuestion } from "@/src/components/AskAQuestion";
+import { GeneralInformation } from "@/src/components/GeneralInformation";
+import { Jumbotron } from "@/src/components/Jumbotron";
+import { Sponsors } from "@/src/components/Sponsors";
 
 export default function FAQ() {
   return (

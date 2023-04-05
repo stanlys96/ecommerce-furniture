@@ -1,6 +1,6 @@
-import { ContactWays } from "@/components/ContactWays";
-import { InformationAboutUs } from "@/components/InformationAboutUs";
-import { Jumbotron } from "@/components/Jumbotron";
+import { ContactWays } from "@/src/components/ContactWays";
+import { InformationAboutUs } from "@/src/components/InformationAboutUs";
+import { Jumbotron } from "@/src/components/Jumbotron";
 import Image from "next/image";
 
 export default function Contact() {

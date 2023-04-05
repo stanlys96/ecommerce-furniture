@@ -8,8 +8,16 @@ import { AiOutlineCheck } from "react-icons/ai";
 import { TopCategory } from "./TopCategory";
 import { LatestBlog } from "./LatestBlog";
 import { Sponsors } from "./Sponsors";
+import { fetcher } from "@/utils/axios";
+import useSWR from "swr";
+import { FeaturedProducts } from "./FeaturedProducts";
+import { LatestProducts } from "./LatestProducts";
+import { TrendingProducts } from "./TrendingProducts";
+import { TopCategories } from "./TopCategories";
+import { LatestBlogSection } from "./LatestBlogSection";
 
 export const HomePage = () => {
+  const { data } = useSWR("/products/getAllProducts", fetcher);
   return (
     <div>
       <div className="home-bg relative flex justify-center items-center">
@@ -30,44 +38,16 @@ export const HomePage = () => {
         </div>
       </div>
       <div className="container mx-auto py-12 px-[150px]">
-        <div className="mb-[50px]">
-          <p className="text-darkBlue font-bold text-center text-[42px] mb-[20px]">
-            Featured Products
-          </p>
-          <div className="grid grid-cols-4 gap-x-8">
-            <FeaturedProduct />
-            <FeaturedProduct />
-            <FeaturedProduct />
-            <FeaturedProduct />
-          </div>
-        </div>
-        <div>
-          <p className="text-darkBlue font-bold text-center text-[42px] mb-[20px]">
-            Latest Products
-          </p>
-          <div className="flex justify-center items-center gap-x-10">
-            <a className="text-secondBlue" href="#">
-              New Arrival
-            </a>
-            <a className="text-secondBlue" href="#">
-              Best Seller
-            </a>
-            <a className="text-secondBlue" href="#">
-              Featured
-            </a>
-            <a className="text-secondBlue" href="#">
-              Special Offer
-            </a>
-          </div>
-          <div className="grid grid-cols-3 gap-x-8">
-            <LatestProduct />
-            <LatestProduct />
-            <LatestProduct />
-            <LatestProduct />
-            <LatestProduct />
-            <LatestProduct />
-          </div>
-        </div>
+        <FeaturedProducts
+          data={data?.data.filter(
+            (product: any, idx: any) => product.sale_type === "featured"
+          )}
+        />
+        <LatestProducts
+          data={data?.data.filter(
+            (product: any, idx: any) => product.sale_type === "latest"
+          )}
+        />
         <div className="mt-[50px]">
           <p className="text-darkBlue font-bold text-center text-[42px] mb-[20px]">
             What Shopex Offer!
@@ -121,58 +101,14 @@ export const HomePage = () => {
         </div>
       </div>
       <div className="container mx-auto py-12 px-[150px]">
-        <div className="mb-[50px]">
-          <p className="text-darkBlue font-bold text-center text-[42px] mb-[20px]">
-            Trending Products
-          </p>
-          <div className="grid grid-cols-4 gap-x-8">
-            <TrendingProduct />
-            <TrendingProduct />
-            <TrendingProduct />
-            <TrendingProduct />
-          </div>
-          <div className="mt-[20px]">
-            <div className="grid grid-cols-4 gap-x-8">
-              <div className="col-span-3 grid grid-cols-2 gap-x-4 h-96">
-                <div className="bg-lightPink p-4 h-64 relative">
-                  <p className="text-secondBlue text-xl">
-                    23% off in all products
-                  </p>
-                  <p className="text-pink border-b border-pink inline-block pb-0 text-base mt-2">
-                    Shop Now
-                  </p>
-                  <Image
-                    width={213}
-                    height={207}
-                    alt="walao"
-                    src="/img/speaker.png"
-                    className="absolute right-0 bottom-0"
-                  />
-                </div>
-                <div className="bg-secondGray p-4 h-64 mt-auto relative">
-                  <p className="text-secondBlue text-xl">
-                    23% off in all products
-                  </p>
-                  <p className="text-pink border-b border-pink inline-block pb-0 text-base mt-2">
-                    View Collection
-                  </p>
-                  <Image
-                    width={312}
-                    height={173}
-                    alt="walao"
-                    src="/img/drawboard.png"
-                    className="absolute right-0 bottom-0"
-                  />
-                </div>
-              </div>
-              <div className="flex flex-col gap-y-2">
-                <ExecutiveProduct />
-                <ExecutiveProduct />
-                <ExecutiveProduct />
-              </div>
-            </div>
-          </div>
-        </div>
+        <TrendingProducts
+          trendingData={data?.data.filter(
+            (product: any, idx: any) => product.sale_type === "trending"
+          )}
+          executiveData={data?.data.filter(
+            (product: any, idx: any) => product.sale_type === "executive"
+          )}
+        />
         <div className="mt-[50px]">
           <p className="text-darkBlue font-bold text-center text-[42px] mb-[20px]">
             Discount Item
@@ -242,17 +178,11 @@ export const HomePage = () => {
             </div>
           </div>
         </div>
-        <div className="mt-[50px]">
-          <p className="text-darkBlue font-bold text-center text-[42px] mb-[30px]">
-            Top Categories
-          </p>
-          <div className="grid grid-cols-4 gap-x-8">
-            <TopCategory />
-            <TopCategory />
-            <TopCategory />
-            <TopCategory />
-          </div>
-        </div>
+        <TopCategories
+          data={data?.data.filter(
+            (product: any, idx: any) => product.sale_type === "top"
+          )}
+        />
       </div>
       <div className="my-[50px] newsletter-bg flex justify-center items-center">
         <div className="mx-[400px] flex flex-col justify-center items-center h-full">
@@ -265,16 +195,7 @@ export const HomePage = () => {
         </div>
       </div>
       <Sponsors />
-      <div className="mt-[50px]">
-        <p className="text-darkBlue font-bold text-center text-[42px] mb-[30px]">
-          Latest Blog
-        </p>
-        <div className="grid grid-cols-3 gap-x-8 mx-auto container px-[150px]">
-          <LatestBlog />
-          <LatestBlog />
-          <LatestBlog />
-        </div>
-      </div>
+      <LatestBlogSection />
     </div>
   );
 };

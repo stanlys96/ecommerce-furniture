@@ -17,55 +17,55 @@ export const Footer = () => {
           <div className="flex flex-col">
             <p className="text-black text-[22px] mb-[10px]">Categories</p>
             <a className="text-base text-lightGray my-3" href="#">
-              Laptops & Computers
+              Laptops
             </a>
             <a className="text-base text-lightGray my-3" href="#">
-              Laptops & Computers
+              Cameras
             </a>
             <a className="text-base text-lightGray my-3" href="#">
-              Laptops & Computers
+              Smart Phones
             </a>
             <a className="text-base text-lightGray my-3" href="#">
-              Laptops & Computers
+              Video Games
             </a>
             <a className="text-base text-lightGray my-3" href="#">
-              Laptops & Computers
-            </a>
-          </div>
-          <div className="flex flex-col">
-            <p className="text-black text-[22px] mb-[10px]">Categories</p>
-            <a className="text-base text-lightGray my-3" href="#">
-              Laptops & Computers
-            </a>
-            <a className="text-base text-lightGray my-3" href="#">
-              Laptops & Computers
-            </a>
-            <a className="text-base text-lightGray my-3" href="#">
-              Laptops & Computers
-            </a>
-            <a className="text-base text-lightGray my-3" href="#">
-              Laptops & Computers
-            </a>
-            <a className="text-base text-lightGray my-3" href="#">
-              Laptops & Computers
+              Waterproof Headphones
             </a>
           </div>
           <div className="flex flex-col">
-            <p className="text-black text-[22px] mb-[10px]">Categories</p>
+            <p className="text-black text-[22px] mb-[10px]">Customer Care</p>
             <a className="text-base text-lightGray my-3" href="#">
-              Laptops & Computers
+              My Account
             </a>
             <a className="text-base text-lightGray my-3" href="#">
-              Laptops & Computers
+              Discount
             </a>
             <a className="text-base text-lightGray my-3" href="#">
-              Laptops & Computers
+              Returns
             </a>
             <a className="text-base text-lightGray my-3" href="#">
-              Laptops & Computers
+              Orders History
             </a>
             <a className="text-base text-lightGray my-3" href="#">
-              Laptops & Computers
+              Order Tracking
+            </a>
+          </div>
+          <div className="flex flex-col">
+            <p className="text-black text-[22px] mb-[10px]">Pages</p>
+            <a className="text-base text-lightGray my-3" href="#">
+              Blog
+            </a>
+            <a className="text-base text-lightGray my-3" href="#">
+              Browse the Shop
+            </a>
+            <a className="text-base text-lightGray my-3" href="#">
+              Category
+            </a>
+            <a className="text-base text-lightGray my-3" href="#">
+              Pre-Built Pages
+            </a>
+            <a className="text-base text-lightGray my-3" href="#">
+              Visual Composer Elements
             </a>
           </div>
         </div>

@@ -1,8 +1,8 @@
-import { Jumbotron } from "@/components/Jumbotron";
-import { ProductDetail } from "@/components/ProductDetail";
-import { ProductDetailsDescription } from "@/components/ProductDetailsDescription";
-import { RelatedProducts } from "@/components/RelatedProducts";
-import { Sponsors } from "@/components/Sponsors";
+import { Jumbotron } from "@/src/components/Jumbotron";
+import { ProductDetail } from "@/src/components/ProductDetail";
+import { ProductDetailsDescription } from "@/src/components/ProductDetailsDescription";
+import { RelatedProducts } from "@/src/components/RelatedProducts";
+import { Sponsors } from "@/src/components/Sponsors";
 
 export default function ProductDetails() {
   return (

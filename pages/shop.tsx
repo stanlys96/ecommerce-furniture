@@ -1,8 +1,8 @@
-import { GridProduct } from "@/components/GridProduct";
-import { Jumbotron } from "@/components/Jumbotron";
-import { ListProduct } from "@/components/ListProduct";
-import { ShopHeader } from "@/components/ShopHeader";
-import { Sponsors } from "@/components/Sponsors";
+import { GridProduct } from "@/src/components/GridProduct";
+import { Jumbotron } from "@/src/components/Jumbotron";
+import { ListProduct } from "@/src/components/ListProduct";
+import { ShopHeader } from "@/src/components/ShopHeader";
+import { Sponsors } from "@/src/components/Sponsors";
 import { useState } from "react";
 
 export default function Shop() {

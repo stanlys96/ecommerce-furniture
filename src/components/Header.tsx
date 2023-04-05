@@ -1,12 +1,26 @@
 import { useRouter } from "next/router";
+import { FC, useEffect, useState } from "react";
+import { getCookie, deleteCookie } from "cookies-next";
+import { useSelector, useDispatch } from "react-redux";
+import { RootState, authActions } from "../stores";
+import useSWR from "swr";
+import { fetcher } from "@/utils/axios";
 
-export const Header = () => {
+const Header = () => {
   const router = useRouter();
+  const dispatch = useDispatch();
+  const account = useSelector((state: RootState) => state.auth);
+  useEffect(() => {
+    if (getCookie("token")) {
+      dispatch(authActions.setToken(getCookie("token") as string));
+    }
+  }, [account]);
+
   return (
     <div>
       <div className="bg-purple">
         <div className="container mx-auto flex justify-between py-3 items-center px-[150px]">
-          <p className="text-white">Walao</p>
+          <p className="text-white">{account.email}</p>
           <ul className="flex gap-x-4 text-white">
             <li>
               <a href="#">English</a>
@@ -15,9 +29,22 @@ export const Header = () => {
               <a href="#">USD</a>
             </li>
             <li>
-              <a onClick={() => router.push("/login")} href="#">
-                Login
-              </a>
+              {account.token ? (
+                <a
+                  onClick={() => {
+                    deleteCookie("token");
+                    dispatch(authActions.setToken(""));
+                    dispatch(authActions.setEmail(""));
+                  }}
+                  href="#"
+                >
+                  Logout
+                </a>
+              ) : (
+                <a onClick={() => router.push("/login")} href="#">
+                  Login
+                </a>
+              )}
             </li>
             <li>
               <a href="#">Wishlist</a>
@@ -59,3 +86,5 @@ export const Header = () => {
     </div>
   );
 };
+
+export default Header;
