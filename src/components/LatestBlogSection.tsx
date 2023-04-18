@@ -12,6 +12,7 @@ export const LatestBlogSection = () => {
       <div className="grid grid-cols-3 gap-x-8 mx-auto container px-[150px]">
         {data?.data?.map((blog: any, idx: any) => (
           <LatestBlog
+            key={idx}
             id={blog.id}
             imgUrl={blog.img_url}
             author={blog.author}

@@ -56,7 +56,10 @@ export const CartData = () => {
   return (
     <div className="col-span-2">
       {cartData.map((data, idx) => (
-        <div className="flex gap-x-3 items-center justify-start text-left py-4 border-b-2 border-fourteenthGray">
+        <div
+          key={idx}
+          className="flex gap-x-3 items-center justify-start text-left py-4 border-b-2 border-fourteenthGray"
+        >
           <div>
             <Image src={data.imgUrl} width={83} height={87} alt="walao" />
           </div>

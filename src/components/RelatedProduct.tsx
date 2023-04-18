@@ -13,7 +13,7 @@ export const RelatedProduct = () => {
         />
       </div>
       <div className="flex items-center justify-between my-2">
-        <p className="text-secondBlue text-base">Women's Fashion</p>
+        <p className="text-secondBlue text-base">Women&apos;s Fashion</p>
         <div className="flex gap-x-1 items-center">
           {stars.map((data, idx) => (
             <Image

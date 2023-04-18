@@ -78,7 +78,7 @@ export default function Login() {
                 Sign In
               </button>
               <a className="text-base text-eigthGray cursor-pointer text-center">
-                Don't have an account? Create account
+                Don&apos;t have an account? Create account
               </a>
             </Form>
           </Formik>

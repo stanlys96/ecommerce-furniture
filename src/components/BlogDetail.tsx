@@ -40,12 +40,12 @@ export const BlogDetail = ({ data }: Props) => {
       </p>
       <div className="bg-seventeenthGray p-4 border-l-2 border-pink">
         <p className="text-subText text-base text-ellipsis">
-          "<i>{data.description3}</i>"
+          &quot;<i>{data.description3}</i>&quot;
         </p>
       </div>
       <div className="py-8 flex gap-x-4">
         {data.additional_images.map((imgData: any, idx: any) => (
-          <Image src={imgData} width={418} height={245} alt="walao" />
+          <Image key={idx} src={imgData} width={418} height={245} alt="walao" />
         ))}
       </div>
       <p className="text-subText text-base text-ellipsis">
@@ -54,6 +54,7 @@ export const BlogDetail = ({ data }: Props) => {
       <div className="my-5 grid grid-cols-4 gap-x-4">
         {data.products_on_sale.map((productData: any, idx: any) => (
           <BlogDetailBox
+            key={idx}
             imgUrl={productData.img_url}
             title={productData.title}
             price={productData.price}
