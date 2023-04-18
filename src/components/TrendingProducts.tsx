@@ -16,6 +16,7 @@ export const TrendingProducts = ({ trendingData, executiveData }: Props) => {
         <div className="grid grid-cols-4 gap-x-8">
           {trendingData?.map((product: any, idx: any) => (
             <TrendingProduct
+              id={product.id}
               imgUrl={product.img_url}
               title={product.name}
               price={product.price}

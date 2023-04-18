@@ -1,12 +1,15 @@
 import Image from "next/image";
+import { useRouter } from "next/router";
 
 type Props = {
+  id: string;
   imgUrl: string;
   title: string;
   price: string;
 };
 
-export const TrendingProduct = ({ imgUrl, title, price }: Props) => {
+export const TrendingProduct = ({ id, imgUrl, title, price }: Props) => {
+  const router = useRouter();
   return (
     <div className="px-2 pt-2 pb-8 shadow-lg-custom">
       <div className="bg-fifthGray p-5">
@@ -19,7 +22,12 @@ export const TrendingProduct = ({ imgUrl, title, price }: Props) => {
         />
       </div>
       <div className="text-center">
-        <p className="my-2 text-secondBlue font-bold">{title}</p>
+        <a
+          onClick={() => router.push(`/shop/${id}`)}
+          className="my-2 text-secondBlue font-bold cursor-pointer inline-block"
+        >
+          {title}
+        </a>
         <div className="flex gap-x-2 justify-center items-center">
           <p className="text-sm text-secondBlue">${price}.00</p>
           <p className="text-sm text-secondBlue30">

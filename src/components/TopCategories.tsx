@@ -13,6 +13,7 @@ export const TopCategories = (data: Props) => {
       <div className="grid grid-cols-4 gap-x-8">
         {data?.data?.map((product: any, idx: any) => (
           <TopCategory
+            id={product.id}
             imgUrl={product.img_url}
             title={product.name}
             price={product.price}

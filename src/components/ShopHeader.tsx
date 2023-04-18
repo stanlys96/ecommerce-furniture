@@ -20,7 +20,7 @@ export const ShopHeader = ({ setProductView }: Props) => {
             className="border border-eigthGray rounded-[2px] py-[4px] px-[10px] focus:outline-pink "
           />
         </div>
-        <div className="flex flex-row items-center gap-x-1">
+        {/* <div className="flex flex-row items-center gap-x-1">
           <p className="inline-block">View:</p>
           <a className="cursor-pointer" onClick={() => setProductView("grid")}>
             <Image width={12} height={12} src="/img/ic-grid.png" alt="walao" />
@@ -28,7 +28,7 @@ export const ShopHeader = ({ setProductView }: Props) => {
           <a className="cursor-pointer" onClick={() => setProductView("list")}>
             <Image width={12} height={12} src="/img/ic-list.png" alt="walao" />
           </a>
-        </div>
+        </div> */}
       </div>
     </div>
   );

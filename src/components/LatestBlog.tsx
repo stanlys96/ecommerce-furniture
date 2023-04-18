@@ -1,6 +1,8 @@
 import Image from "next/image";
+import { useRouter } from "next/router";
 
 type Props = {
+  id: string;
   imgUrl: string;
   author: string;
   date: string;
@@ -9,12 +11,14 @@ type Props = {
 };
 
 export const LatestBlog = ({
+  id,
   imgUrl,
   author,
   date,
   title,
   description,
 }: Props) => {
+  const router = useRouter();
   return (
     <div className="shadow-lg-custom mb-[100px] rounded-[10px]">
       <div>
@@ -44,9 +48,12 @@ export const LatestBlog = ({
         </div>
         <p className="text-secondBlue font-bold my-3">{title}</p>
         <p className="text-seventhGray text-base">{description}</p>
-        <p className="text-secondBlue text-base border-b border-secondBlue inline-block mt-3">
+        <a
+          onClick={() => router.push(`/blog/${id}`)}
+          className="text-secondBlue text-base border-b border-secondBlue inline-block mt-3 cursor-pointer"
+        >
           Read More
-        </p>
+        </a>
       </div>
     </div>
   );

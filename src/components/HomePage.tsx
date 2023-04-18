@@ -17,7 +17,7 @@ import { TopCategories } from "./TopCategories";
 import { LatestBlogSection } from "./LatestBlogSection";
 
 export const HomePage = () => {
-  const { data } = useSWR("/products/getAllProducts", fetcher);
+  const { data } = useSWR("/furniture/products/getAllProducts", fetcher);
   return (
     <div>
       <div className="home-bg relative flex justify-center items-center">

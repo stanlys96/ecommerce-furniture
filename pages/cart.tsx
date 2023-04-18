@@ -1,6 +1,7 @@
 import { CartTotals } from "@/src/components/CartTotals";
 import { Jumbotron } from "@/src/components/Jumbotron";
 import Image from "next/image";
+import { AiFillCloseCircle } from "react-icons/ai";
 
 export default function ShoppingCart() {
   const cartData = [
@@ -83,7 +84,10 @@ export default function ShoppingCart() {
                   <tr key={idx} className="border-b-2 border-fourteenthGray">
                     <td>
                       <div className="flex gap-x-3 items-center justify-start text-left py-4">
-                        <div>
+                        <div className="relative">
+                          <a className="absolute -top-1 -right-1 cursor-pointer">
+                            <AiFillCloseCircle />
+                          </a>
                           <Image
                             src={data.imgUrl}
                             width={83}

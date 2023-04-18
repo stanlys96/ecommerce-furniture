@@ -1,6 +1,8 @@
 import Image from "next/image";
+import { useRouter } from "next/router";
 
 type Props = {
+  id: number;
   index: number;
   setBlogState: (param1: any) => void;
   imgUrl: string;
@@ -13,6 +15,7 @@ type Props = {
 };
 
 export const BlogBox = ({
+  id,
   index,
   setBlogState,
   imgUrl,
@@ -23,6 +26,7 @@ export const BlogBox = ({
   completeData,
   scrollToTop,
 }: Props) => {
+  const router = useRouter();
   return (
     <div className={`${index !== 0 && "mt-[50px]"}`}>
       <Image src={imgUrl} width={870} height={453} alt="walao" />
@@ -50,12 +54,7 @@ export const BlogBox = ({
       <div className="flex gap-x-1 items-center">
         <a
           onClick={() => {
-            setBlogState({ detail: true, id: index, data: completeData });
-            scrollToTop.current?.scrollIntoView({
-              behavior: "smooth",
-              block: "start",
-              inline: "nearest",
-            });
+            router.push(`/blog/${id}`);
           }}
           className="text-[18px] text-secondBlue font-bold cursor-pointer"
         >

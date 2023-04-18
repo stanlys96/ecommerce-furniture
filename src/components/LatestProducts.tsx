@@ -27,6 +27,7 @@ export const LatestProducts = (data: Props) => {
       <div className="grid grid-cols-3 gap-x-8 justify-stretch">
         {data?.data?.map((product: any, idx: any) => (
           <LatestProduct
+            id={product.id}
             imgUrl={product.img_url}
             title={product.name}
             price={product.price}

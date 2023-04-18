@@ -5,6 +5,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { RootState, authActions } from "../stores";
 import useSWR from "swr";
 import { fetcher } from "@/utils/axios";
+import { AiOutlineShoppingCart } from "react-icons/ai";
 
 const Header = () => {
   const router = useRouter();
@@ -21,13 +22,13 @@ const Header = () => {
       <div className="bg-purple">
         <div className="container mx-auto flex justify-between py-3 items-center px-[150px]">
           <p className="text-white">{account.email}</p>
-          <ul className="flex gap-x-4 text-white">
+          <ul className="flex gap-x-4 text-white items-center">
             <li>
               <a href="#">English</a>
             </li>
-            <li>
+            {/* <li>
               <a href="#">USD</a>
-            </li>
+            </li> */}
             <li>
               {account.token ? (
                 <a
@@ -49,6 +50,14 @@ const Header = () => {
             <li>
               <a href="#">Wishlist</a>
             </li>
+            <li>
+              <a
+                className="cursor-pointer"
+                onClick={() => router.push("/cart")}
+              >
+                <AiOutlineShoppingCart />
+              </a>
+            </li>
           </ul>
         </div>
       </div>
@@ -62,18 +71,14 @@ const Header = () => {
               </a>
             </li>
             <li>
-              <a href="#">Pages</a>
-            </li>
-            <li>
-              <a href="#">Products</a>
-            </li>
-            <li>
               <a onClick={() => router.push("/blog")} href="#">
                 Blog
               </a>
             </li>
             <li>
-              <a href="#">Shop</a>
+              <a onClick={() => router.push("/shop")} href="#">
+                Shop
+              </a>
             </li>
             <li>
               <a onClick={() => router.push("/contact")} href="#">
