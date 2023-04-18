@@ -1,6 +1,19 @@
+import { apiClient } from "@/utils/axios";
 import Image from "next/image";
 import { AiOutlineHeart } from "react-icons/ai";
 import Swal from "sweetalert2";
+
+const Toast = Swal.mixin({
+  toast: true,
+  position: "top-end",
+  showConfirmButton: false,
+  timer: 3000,
+  timerProgressBar: true,
+  didOpen: (toast) => {
+    toast.addEventListener("mouseenter", Swal.stopTimer);
+    toast.addEventListener("mouseleave", Swal.resumeTimer);
+  },
+});
 
 type Props = {
   data: any;
@@ -59,6 +72,27 @@ export const ProductDetail = ({ data }: Props) => {
                     inputLabel: "Quantity",
                     inputPlaceholder: "Enter quantity",
                     showCancelButton: true,
+                    showLoaderOnConfirm: true,
+                    preConfirm: (quantity) => {
+                      return apiClient
+                        .post("/furniture/cart/addToCart", {
+                          user_id: "3",
+                          product_id: data.id,
+                          quantity,
+                        })
+                        .then((response) => {
+                          console.log(response, "<<<");
+                          Toast.fire({
+                            icon: "success",
+                            title: "Added to cart successfully!",
+                          });
+                        })
+                        .catch((error) => {
+                          Swal.showValidationMessage(
+                            `Request failed: ${error}`
+                          );
+                        });
+                    },
                     inputValidator: (value) => {
                       return new Promise((resolve, reject) => {
                         if (
@@ -76,10 +110,6 @@ export const ProductDetail = ({ data }: Props) => {
                       });
                     },
                   });
-
-                  if (quantity) {
-                    Swal.fire(`Entered quantity: ${quantity}`);
-                  }
                 }}
                 className="rounded-[2px] px-5 py-2 bg-pink text-white w-fit"
               >
